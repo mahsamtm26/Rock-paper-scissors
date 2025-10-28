@@ -11,29 +11,37 @@
 <body>
     <div class="game-container">
         <h1> Rock • Paper • Scissors</h1>
+        <div class="setup">
+            <label for="roundCount">Choose total rounds:</label>
+            <select id="roundCount">
+                <option value="3" selected>3</option>
+                <option value="5">5</option>
+                <option value="7">7</option>
+            </select>
+            <button id="startBtn" onclick="startGame()">Start Game</button>
+        </div>
+
         <div class="scoreboard">
             <p>Player: <span id="playerScore">0</span></p>
             <p>Computer: <span id="computerScore">0</span></p>
-            <p>Round: <span id="round">1</span> / 3</p>
+            <p>Round: <span id="round">0</span> / <span id="totalRounds">0</span></p>
         </div>
 
         <div class="game-land">
             <div class="game-land__player">
                 <div class="hands">
-                    <img src="./assets/images/rock.png" alt="Rock" class="hand" id="rock"
-                        onclick="play('Rock')">
-                    <img src="./assets/images/paper.png" alt="Paper" class="hand" id="paper"
-                        onclick="play('Paper')">
+                    <img src="./assets/images/rock.png" alt="Rock" class="hand" id="rock" onclick="play('Rock')">
+                    <img src="./assets/images/paper.png" alt="Paper" class="hand" id="paper" onclick="play('Paper')">
                     <img src="./assets/images/scissors.png" alt="Scissors" class="hand" id="scissors"
                         onclick="play('Scissors')">
                 </div>
             </div>
             <div class="game-land__computer">
-                 <img id="computerHand" class=" hand__computer" src="./assets/images/question.png" alt="Computer choice">
+                <img id="computerHand" class=" hand__computer" src="./assets/images/question.png" alt="Computer choice">
             </div>
         </div>
 
-        <div id="message" class="message">Make your move!</div>
+        <div id="message" class="message">Select number of rounds and start the game!</div>
         <button id="restartBtn" onclick="restartGame()">Restart Game</button>
     </div>
 

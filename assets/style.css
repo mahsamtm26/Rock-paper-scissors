@@ -1,5 +1,5 @@
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins';
     background: #614385;
     background: -webkit-linear-gradient(to right, #516395, #614385);  
     background: linear-gradient(to right, #516395, #8261ab); 
@@ -17,10 +17,13 @@ body {
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(0,0,0,0.4);
   overflow: hidden;
+  backdrop-filter: blur(8px);
 }
 
 h1 {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  letter-spacing: 3px;
+  font-size: 26px;
 }
 
 .scoreboard {
@@ -34,40 +37,108 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 50px 0;
 }
 
 .hands {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .hand {
-  width: 90px;
   cursor: pointer;
   transform: rotate(90deg);
-  transition: transform 0.2s;
+  transition: transform 0.3s ease, filter 0.3s ease;
   -webkit-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   -o-transform: rotate(90deg);
+  margin-top: -70px;
 }
 
-.hand:hover {
-  transform: scale(1.05) rotate(90deg);
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+@keyframes score-up {
+    0% { transform: translateY(0); opacity: 1; color: inherit; }
+    50% { transform: translateY(-15px); opacity: 1; }
+    100% { transform: translateY(-30px); opacity: 0; }
+}
+
+.hand__computer{
+  width: 120px;
+}
+
+.hand__computer.shaking {
+    animation: shake 0.3s infinite;
+}
+
+.hand.selected {
+    box-shadow: 0 0 10px 5px rgba(255, 255, 0, 0.523); 
+    border-radius: 20px; 
+    transform: scale(1.05) rotate(90deg);
   -webkit-transform: scale(1.05) rotate(90deg);
   -moz-transform: scale(1.05) rotate(90deg);
   -ms-transform: scale(1.05) rotate(90deg);
   -o-transform: scale(1.05) rotate(90deg);
 }
 
-.hand__computer{
-  width: 100px;
+.player-score-win {
+    color: green !important;
+    animation: score-up 1.5s ease-out;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.computer-score-win {
+    color: red !important;
+    animation: score-up 1.5s ease-out;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .message {
   font-size: 22px;
   min-height: 40px;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+
+#startBtn {
+  background: #00b894;
+  color: #fff;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+#startBtn:hover {
+  background: #019670;
+}
+
+.setup {
+  margin-bottom: 20px;
+}
+
+select, button {
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
 }
 
 #restartBtn {
