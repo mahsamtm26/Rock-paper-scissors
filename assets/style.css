@@ -16,6 +16,7 @@ body {
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  overflow: hidden;
 }
 
 h1 {
@@ -29,25 +30,39 @@ h1 {
   font-size: 18px;
 }
 
+.game-land{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .hands {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  gap: 40px;
-  margin-bottom: 20px;
 }
 
 .hand {
   width: 90px;
   cursor: pointer;
+  transform: rotate(90deg);
   transition: transform 0.2s;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
 }
 
 .hand:hover {
-  transform: scale(1.05);
-  -webkit-transform: scale(1.05);
-  -moz-transform: scale(1.05);
-  -ms-transform: scale(1.05);
-  -o-transform: scale(1.05);
+  transform: scale(1.05) rotate(90deg);
+  -webkit-transform: scale(1.05) rotate(90deg);
+  -moz-transform: scale(1.05) rotate(90deg);
+  -ms-transform: scale(1.05) rotate(90deg);
+  -o-transform: scale(1.05) rotate(90deg);
+}
+
+.hand__computer{
+  width: 100px;
 }
 
 .message {

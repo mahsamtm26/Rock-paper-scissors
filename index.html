@@ -1,32 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="./assets/style.css">
 </head>
+
 <body>
     <div class="game-container">
-    <h1> Rock • Paper • Scissors</h1>
-    <div class="scoreboard">
-        <p>Player: <span id="playerScore">0</span></p>
-        <p>Computer: <span id="computerScore">0</span></p>
-        <p>Round: <span id="round">1</span> / 3</p>
+        <h1> Rock • Paper • Scissors</h1>
+        <div class="scoreboard">
+            <p>Player: <span id="playerScore">0</span></p>
+            <p>Computer: <span id="computerScore">0</span></p>
+            <p>Round: <span id="round">1</span> / 3</p>
+        </div>
+
+        <div class="game-land">
+            <div class="game-land__player">
+                <div class="hands">
+                    <img src="./assets/images/rock.png" alt="Rock" class="hand" id="rock"
+                        onclick="play('Rock')">
+                    <img src="./assets/images/paper.png" alt="Paper" class="hand" id="paper"
+                        onclick="play('Paper')">
+                    <img src="./assets/images/scissors.png" alt="Scissors" class="hand" id="scissors"
+                        onclick="play('Scissors')">
+                </div>
+            </div>
+            <div class="game-land__computer">
+                 <img id="computerHand" class=" hand__computer" src="./assets/images/question.png" alt="Computer choice">
+            </div>
+        </div>
+
+        <div id="message" class="message">Make your move!</div>
+        <button id="restartBtn" onclick="restartGame()">Restart Game</button>
     </div>
 
-    <div class="hands">
-        <img src="./assets/images/rock2-removebg-preview.png" alt="Rock" class="hand" id="rock" onclick="play('Rock')">
-        <img src="./assets/images/paper-removebg-preview.png" alt="Paper" class="hand" id="paper" onclick="play('Paper')">
-        <img src="./assets/images/scissors2-removebg-preview.png" alt="Scissors" class="hand" id="scissors" onclick="play('Scissors')">
-    </div>
-
-    <div id="message" class="message">Make your move!</div>
-    <button id="restartBtn" onclick="restartGame()">Restart Game</button>
-  </div>
 
 
-
-  <script src="./app.js"></script>
+    <script src="./app.js" defer></script>
 </body>
+
 </html>

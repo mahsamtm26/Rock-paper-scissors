@@ -16,9 +16,12 @@ const play = (playerChoice) =>  {
 
     const choices = ["Rock", "Paper", "Scissors"];
     const computerChoice = choices[Math.floor(Math.random() * 3)]
+    document.getElementById("computerHand").src = `./assets/images/${computerChoice.toLowerCase()}.png`;
+
     console.log(computerChoice);
     let resultMessage = "";
     if (round > totalRounds) return;
+    if (round === totalRounds) disableHands();
 
     if (playerChoice === computerChoice) {
         resultMessage = `🤝 It's a tie! You both chose ${playerChoice}.`
@@ -37,6 +40,13 @@ const play = (playerChoice) =>  {
     message.innerHTML = resultMessage;
     playerScoreDisplay.textContent = playerScore;
     computerScoreDisplay.textContent = computerScore;
+
+    if (round === totalRounds) {
+      setTimeout(showFinalResult, 1000);
+    } else {
+      round++;
+      roundDisplay.textContent = round;
+    }
 };
 
 const showFinalResult = () => {
@@ -51,6 +61,7 @@ const showFinalResult = () => {
 
     message.textContent = finalMessage;
     restartBtn.style.display = "inline-block";
+    disableHands()
     }
 
 const restartGame = () => {
@@ -62,6 +73,15 @@ const restartGame = () => {
     computerScoreDisplay.textContent = 0;
     roundDisplay.textContent = 1;
     restartBtn.style.display = "none";
+    document.getElementById("computerHand").src = "./assets/images/question.png";
+    document.querySelectorAll(".hand").forEach(hand => {
+    hand.style.pointerEvents = "auto";
+});
+
+}
+
+const disableHands = () =>{
+document.querySelectorAll(".hand").forEach(hand => hand. style.pointerEvents = "none")
 }
 
 
